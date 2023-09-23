@@ -15,3 +15,12 @@ define Device/thwc-uf896
 	ROOT_BLKDEV := "/dev/mmcblk0p27"
 endef
 TARGET_DEVICES += thwc-uf896
+
+define Device/thwc-uz801
+        DEVICE_VENDOR := THWC
+        DEVICE_MODEL := uz801
+        SOC := msm8916
+        ROOT_BLKDEV := "/dev/mmcblk0p14"
+endef
+TARGET_DEVICES += thwc-uz801
+
