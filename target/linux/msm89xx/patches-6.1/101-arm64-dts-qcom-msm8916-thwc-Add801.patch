@@ -1,0 +1,65 @@
+commit 3b11b34e085bb565e77186e9d3b44067eed2616f
+Author: Your Name <you@example.com>
+Date:   Sun Sep 10 14:48:20 2023 +0000
+
+    add uz801
+
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index 23394c746..2188fb0a0 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -22,6 +22,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-j5.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-serranove.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-thwc-uf896.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-thwc-ufi001c.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-thwc-uz801.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-wingtech-wt88047.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8992-lg-bullhead-rev-10.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= msm8992-lg-bullhead-rev-101.dtb
+diff --git a/arch/arm64/boot/dts/qcom/msm8916-thwc-uz801.dts b/arch/arm64/boot/dts/qcom/msm8916-thwc-uz801.dts
+new file mode 100644
+index 000000000..195566eb3
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/msm8916-thwc-uz801.dts
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++/dts-v1/;
++
++#include "msm8916-ufi.dtsi"
++
++/ {
++	model = "ufi-001c/ufi-001b 4G Modem Stick";
++	compatible = "thwc,ufi001c", "qcom,msm8916";
++};
++
++&button_restart {
++	gpios = <&msmgpio 23 GPIO_ACTIVE_HIGH>;
++};
++
++
++&led_r {
++	gpios = <&msmgpio 7 GPIO_ACTIVE_HIGH>;
++};
++
++&led_g {
++	gpios = <&msmgpio 8 GPIO_ACTIVE_HIGH>;
++};
++
++&led_b {
++	gpios = <&msmgpio 6 GPIO_ACTIVE_HIGH>;
++};
++
++
++&button_default {
++	pins = "gpio23";
++	bias-pull-up;
++};
++
++&gpio_leds_default {
++	pins = "gpio6", "gpio7", "gpio8";
++};
++
++&sim_ctrl_default {
++	pins = "gpio57", "gpio58", "gpio58";
++};
